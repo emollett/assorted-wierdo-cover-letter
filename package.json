@@ -1,0 +1,17 @@
+{
+  "name": "assorted-wierdo-cover-letter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "resume.js",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "sentencer": "^0.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-js": "browserify resume.js -o bundle.js --ignore-missing"
+  },
+  "author": "",
+  "license": "ISC"
+}
