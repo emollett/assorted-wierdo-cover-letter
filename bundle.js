@@ -23862,7 +23862,7 @@ LogisticRegressionClassifier.restore = restore;
 
 module.exports = LogisticRegressionClassifier;
 
-},{"./classifier":163,"sylvester":255,"util":160}],165:[function(require,module,exports){
+},{"./classifier":163,"sylvester":256,"util":160}],165:[function(require,module,exports){
 /*
 Copyright (c) 2011, Chris Umbel
 
@@ -23982,7 +23982,7 @@ KMeans.prototype.cluster = cluster;
 
 module.exports = KMeans;
 
-},{"sylvester":255}],166:[function(require,module,exports){
+},{"sylvester":256}],166:[function(require,module,exports){
 
 exports.BayesClassifier = require('./classifier/bayes_classifier');
 exports.LogisticRegressionClassifier = require('./classifier/logistic_regression_classifier');
@@ -44670,7 +44670,7 @@ Sentences.prototype.type = function(callback) {
 
 module.exports = Sentences;
 
-},{"underscore":262}],170:[function(require,module,exports){
+},{"underscore":263}],170:[function(require,module,exports){
 /*
 Copyright (c) 2011, Chris Umbel
 
@@ -46139,7 +46139,7 @@ var ngrams = function(sequence, n, startSymbol, endSymbol) {
 }
 
 
-},{"../tokenizers/regexp_tokenizer":224,"underscore":262}],185:[function(require,module,exports){
+},{"../tokenizers/regexp_tokenizer":224,"underscore":263}],185:[function(require,module,exports){
 /*
 Copyright (c) 2014, Lee Wenzhu
 
@@ -46224,7 +46224,7 @@ var ngrams = function(sequence, n, startSymbol, endSymbol) {
 };
 
 
-},{"underscore":262}],186:[function(require,module,exports){
+},{"underscore":263}],186:[function(require,module,exports){
 /*
  Copyright (c) 2013, Kenneth Koch
 
@@ -51265,7 +51265,7 @@ TfIdf.prototype.setTokenizer = function(t) {
 };
 
 }).call(this,require("buffer").Buffer)
-},{"../tokenizers/regexp_tokenizer":224,"../util/stopwords":234,"buffer":48,"fs":1,"underscore":262}],214:[function(require,module,exports){
+},{"../tokenizers/regexp_tokenizer":224,"../util/stopwords":234,"buffer":48,"fs":1,"underscore":263}],214:[function(require,module,exports){
 /*
 Copyright (c) 2011, Chris Umbel
 
@@ -51770,7 +51770,7 @@ var WordPunctTokenizer = function(options) {
 util.inherits(WordPunctTokenizer, RegexpTokenizer);
 exports.WordPunctTokenizer = WordPunctTokenizer;
 
-},{"./tokenizer":225,"underscore":262,"util":160}],225:[function(require,module,exports){
+},{"./tokenizer":225,"underscore":263,"util":160}],225:[function(require,module,exports){
 /*
 Copyright (c) 2011, Chris Umbel
 
@@ -52178,7 +52178,7 @@ TreebankWordTokenizer.prototype.tokenize = function(text) {
 
 module.exports = TreebankWordTokenizer;
 
-},{"./tokenizer":225,"underscore":262,"util":160}],228:[function(require,module,exports){
+},{"./tokenizer":225,"underscore":263,"util":160}],228:[function(require,module,exports){
 /*
  Copyright (c) 2012, Guillaume Marty
 
@@ -54645,6 +54645,32 @@ module.exports = WordNetFile;
 
 }).call(this,require("buffer").Buffer)
 },{"buffer":48,"fs":1,"path":113,"util":160}],249:[function(require,module,exports){
+(function (global){
+"use strict";
+
+// ref: https://github.com/tc39/proposal-global
+var getGlobal = function () {
+	// the only reliable means to get the global object is
+	// `Function('return this')()`
+	// However, this causes CSP violations in Chrome apps.
+	if (typeof self !== 'undefined') { return self; }
+	if (typeof window !== 'undefined') { return window; }
+	if (typeof global !== 'undefined') { return global; }
+	throw new Error('unable to locate global object');
+}
+
+var global = getGlobal();
+
+module.exports = exports = global.fetch;
+
+// Needed for TypeScript and Webpack.
+exports.default = global.fetch.bind(global);
+
+exports.Headers = global.Headers;
+exports.Request = global.Request;
+exports.Response = global.Response;
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],250:[function(require,module,exports){
 /* -*- js-indent-level: 4; -*- */
 
 "use strict";
@@ -54710,9 +54736,9 @@ function well1024a (entropy_) {
              getUInt32: getUInt32 };
 }
 
-},{}],250:[function(require,module,exports){
+},{}],251:[function(require,module,exports){
 module.exports = require("./lib/randy.js");
-},{"./lib/randy.js":251}],251:[function(require,module,exports){
+},{"./lib/randy.js":252}],252:[function(require,module,exports){
 (function (process){
 /* -*- js-indent-level: 4; -*- */
 
@@ -55000,7 +55026,7 @@ var randy = (function () {
 })();
 
 }).call(this,require('_process'))
-},{"_process":120,"crypto":56,"os":107,"prng-well1024a":249}],252:[function(require,module,exports){
+},{"_process":120,"crypto":56,"os":107,"prng-well1024a":250}],253:[function(require,module,exports){
 var natural = require('natural');
 var nounInflector = new natural.NounInflector();
 var articles = require('articles/lib/Articles.js');
@@ -55089,7 +55115,7 @@ Sentencer.prototype.make = function(template) {
 var instance = new Sentencer();
 module.exports = instance;
 
-},{"./words/adjectives.js":253,"./words/nouns.js":254,"articles/lib/Articles.js":167,"lodash":168,"natural":176,"randy":250}],253:[function(require,module,exports){
+},{"./words/adjectives.js":254,"./words/nouns.js":255,"articles/lib/Articles.js":167,"lodash":168,"natural":176,"randy":251}],254:[function(require,module,exports){
 // yes, we're going to be crude and load all the words into memory... it's really not so bad.
 // the list comes from this gem:
 // http://www.ashley-bovan.co.uk/words/partsofspeech.html
@@ -60270,7 +60296,7 @@ module.exports = ["abased",
 "zippy",
 "zonate",
 "zoning"];
-},{}],254:[function(require,module,exports){
+},{}],255:[function(require,module,exports){
 // yes, we're going to be crude and load all the words into memory... it's really not so bad.
 // the list comes from this gem:
 // http://www.ashley-bovan.co.uk/words/partsofspeech.html
@@ -62548,7 +62574,7 @@ module.exports = ["aardvark",
 "zone",
 "zoo",
 "zoology"];
-},{}],255:[function(require,module,exports){
+},{}],256:[function(require,module,exports){
 (function (global){
 // Copyright (c) 2011, Chris Umbel
 
@@ -62564,7 +62590,7 @@ exports.Line.Segment = require('./line.segment');
 exports.Sylvester = require('./sylvester');
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./line":256,"./line.segment":257,"./matrix":258,"./plane":259,"./sylvester":260,"./vector":261}],256:[function(require,module,exports){
+},{"./line":257,"./line.segment":258,"./matrix":259,"./plane":260,"./sylvester":261,"./vector":262}],257:[function(require,module,exports){
 // Copyright (c) 2011, Chris Umbel, James Coglan
 var Vector = require('./vector');
 var Matrix = require('./matrix');
@@ -62797,7 +62823,7 @@ Line.Z = Line.create(Vector.Zero(3), Vector.k);
 
 module.exports = Line;
 
-},{"./matrix":258,"./plane":259,"./sylvester":260,"./vector":261}],257:[function(require,module,exports){
+},{"./matrix":259,"./plane":260,"./sylvester":261,"./vector":262}],258:[function(require,module,exports){
 // Copyright (c) 2011, Chris Umbel, James Coglan
 // Line.Segment class - depends on Line and its dependencies.
 
@@ -62925,7 +62951,7 @@ Line.Segment.create = function(v1, v2) {
 
 module.exports = Line.Segment;
 
-},{"./line":256,"./vector":261}],258:[function(require,module,exports){
+},{"./line":257,"./vector":262}],259:[function(require,module,exports){
 // Copyright (c) 2011, Chris Umbel, James Coglan
 // Matrix class - depends on Vector.
 
@@ -63963,7 +63989,7 @@ Matrix.Ones = function(n, m) {
 
 module.exports = Matrix;
 
-},{"./sylvester":260,"./vector":261,"fs":1,"lapack":undefined}],259:[function(require,module,exports){
+},{"./sylvester":261,"./vector":262,"fs":1,"lapack":undefined}],260:[function(require,module,exports){
 // Copyright (c) 2011, Chris Umbel, James Coglan
 // Plane class - depends on Vector. Some methods require Matrix and Line.
 var Vector = require('./vector');
@@ -64239,7 +64265,7 @@ Plane.fromPoints = function(points) {
 
 module.exports = Plane;
 
-},{"./line":256,"./matrix":258,"./sylvester":260,"./vector":261}],260:[function(require,module,exports){
+},{"./line":257,"./matrix":259,"./sylvester":261,"./vector":262}],261:[function(require,module,exports){
 // Copyright (c) 2011, Chris Umbel, James Coglan
 // This file is required in order for any other classes to work. Some Vector methods work with the
 // other Sylvester classes and are useless unless they are included. Other classes such as Line and
@@ -64256,7 +64282,7 @@ var Sylvester = {
 
 module.exports = Sylvester;
 
-},{}],261:[function(require,module,exports){
+},{}],262:[function(require,module,exports){
 // Copyright (c) 2011, Chris Umbel, James Coglan
 // This file is required in order for any other classes to work. Some Vector methods work with the
 // other Sylvester classes and are useless unless they are included. Other classes such as Line and
@@ -64696,7 +64722,7 @@ Vector.log = function(v) {
 
 module.exports = Vector;
 
-},{"./matrix":258,"./sylvester":260}],262:[function(require,module,exports){
+},{"./matrix":259,"./sylvester":261}],263:[function(require,module,exports){
 (function (global){
 //     Underscore.js 1.9.1
 //     http://underscorejs.org
@@ -66392,31 +66418,69 @@ module.exports = Vector;
 }());
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],263:[function(require,module,exports){
+},{}],264:[function(require,module,exports){
 const Sentencer = require('sentencer');
-const fs = require('fs');
+const fetch = require("node-fetch");
+// const fs = require('fs');
 
-let data = fs.readFileSync('entities.json');
-let entities = JSON.parse(data);
-
-let rolesList = []
-for(i=0; i<entities.Entities.length; i++){
-    if(entities.Entities[i].Type == "ROLE"){
-        rolesList.push(entities.Entities[i].Text)
-    }  
+async function getData(){
+    const response = await fetch('https://emollett.github.io/assorted-wierdo-cover-letter/entities.json');
+    return await response.json();
 }
-
-Sentencer.configure({
+ 
+getData().then((data) => {
+  console.log(data); // JSON data parsed by `response.json()` call
+  let rolesList = createLists(data, "ROLE")
+  let organizationList = createLists(data, "ORGANIZATION")
+  let personList = createLists(data, "PERSON")
+  let locationList = createLists(data, "LOCATION")
+  let eventList = createLists(data, "EVENT")
+  let quantityList = createLists(data, "QUANTITY")
+  let titleList = createLists(data, "TITLE")
+  Sentencer.configure({
     actions: {
         ROLE: function() {
             return rolesList[Math.floor(Math.random() * rolesList.length)]
+        },
+        ORGANIZATION: function() {
+            return organizationList[Math.floor(Math.random() * organizationList.length)]
+        },
+        PERSON: function() {
+            return personList[Math.floor(Math.random() * personList.length)]
+        },
+        LOCATION: function() {
+            return locationList[Math.floor(Math.random() * locationList.length)]
+        },
+        EVENT: function() {
+            return eventList[Math.floor(Math.random() * eventList.length)]
+        },
+        QUANTITY: function() {
+            return quantityList[Math.floor(Math.random() * quantityList.length)]
+        },
+        TITLE: function() {
+            return titleList[Math.floor(Math.random() * titleList.length)]
         }
       }
-
   });
+  generateCoverletter()
+});
+
+
+function createLists(data, match){
+    let rolesList = []
+    for(i=0; i<data.Entities.length; i++){
+        if(data.Entities[i].Type == match){
+            rolesList.push(data.Entities[i].Text)
+        }  
+    }
+
+    return rolesList
+}
+
+
 
 function generateCoverletter(){
-    let text = Sentencer.make("I would like to apply for the role of {{ ROLE }}.");
+    let text = Sentencer.make("I would like to apply for the role of {{ ROLE }}. \r\n \r\n I believe my skills are a good match to be working with you and your team, particularly the experience I gained working with {{ ORGANIZATION }} as a {{ ROLE }}. \r\n I am currently working with {{ PERSON }} at {{ ORGANIZATION }} in {{ LOCATION }}, but since {{EVENT}} happened, I feel that my talents are best used in government. \r\n In addition to the above, I have {{QUANTITY}} knowlege about {{EVENT}} and {{TITLE}}, and previous experience as the {{ROLE}} for {{ORGANIZATION}}. \r\n \r\n Thank you for your time and consideration. I look forward to speaking with you about this employment opportunity.");
 
     console.log(text);
     
@@ -66436,4 +66500,4 @@ function generateCoverletter(){
 
 
 // Thank you for your time and consideration. I look forward to speaking with you about this employment opportunity.
-},{"fs":1,"sentencer":252}]},{},[263]);
+},{"node-fetch":249,"sentencer":253}]},{},[264]);

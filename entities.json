@@ -793,47 +793,47 @@
         },
         {
             "Type": "ROLE",
-            "Text": "Super-talented weirdo"
+            "Text": "Super-talented Weirdo"
         },
         {
             "Type": "ROLE",
-            "Text": "Policy expert"
+            "Text": "Policy Expert"
         },
         {
             "Type": "ROLE",
-            "Text": "Junior researcher"
+            "Text": "Junior Researcher"
         },
         {
             "Type": "ROLE",
-            "Text": "Communication"
+            "Text": "Communications Person"
         },
         {
             "Type": "ROLE",
-            "Text": "Great project manager"
+            "Text": "Great Project Manager"
         },
         {
             "Type": "ROLE",
-            "Text": "Unusual economist"
+            "Text": "Unusual Economist"
         },
         {
             "Type": "ROLE",
-            "Text": "Unusual software developer"
+            "Text": "Unusual Software Developer"
         },
         {
             "Type": "ROLE",
-            "Text": "Unusual mathematician"
+            "Text": "Unusual Mathematician"
         },
         {
             "Type": "ROLE",
-            "Text": "Unusual physicist"
+            "Text": "Unusual Physicist"
         },
         {
             "Type": "ROLE",
-            "Text": "Unusual computer scientist"
+            "Text": "Unusual Computer Scientist"
         },
         {
             "Type": "ROLE",
-            "Text": "Unusual data scientist"
+            "Text": "Unusual Data Scientist"
         }
     ]
 }
